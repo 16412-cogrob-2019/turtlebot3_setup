@@ -46,8 +46,8 @@ You need to make sure that the turtlebot knows your computer is its master!
 
 ## Bring Up TurtleBot
 1. [Remote PC] `roscore`
-2. [Turtlebot] `roslaunch turtlebot3_bringup turtlebot3_robot_multi.launch ns:=tb#_0`
-	* where “#” is the number of the Turtlebot you are trying to run
+2. [Turtlebot] `roslaunch turtlebot3_bringup turtlebot3_robot_multi.launch ns:=tb3_#`
+	* where “#” is the number of the Turtlebot you are trying to run. We have "zero indexed" the turtlebots. The turtlebot label "1" has namespace "tb3_0" and so on.
 3. To see if you are connected, run `rostopic list` on you remote pc in a new terminal
 	* You should see some Turtlebot messages!
 
@@ -55,10 +55,10 @@ You need to make sure that the turtlebot knows your computer is its master!
 You can drive the robot around with your keyboard!
 0. Be sure you have done step 3 from “Install Turtlebot Packages”. 
 1. Bring up Turtlebot as in steps above.
-2. [Remote PC] (In new terminal): `roslaunch turtlebot3_teleop turtlebot3_teleop_key_multi.launch ns=:tb#_0`
+2. [Remote PC] (In new terminal): `roslaunch turtlebot3_teleop turtlebot3_teleop_key_multi.launch ns=:tb3_#`
 
 ## Camera (only Turtlebot 1)
-1. [Turtlebot]  `roslaunch turtlebot3_bringup turtlebot3_robot_multi_camera.launch ns:=tb1_0`
+1. [Turtlebot]  `roslaunch turtlebot3_bringup turtlebot3_robot_multi_camera.launch ns:=tb3_0`
 2. [Remote PC] (in new terminal)  `rqt_image_view`
 	* This will bring up the raw stream of video from the camera in a UI. Use the dropdown menu to select the feed and use the save button to save a frame.
 3. [Remote PC] (in new terminal)  `rosrun rqt_reconfigure rqt_reconfigure` to reconfigure the camera
